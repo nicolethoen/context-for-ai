@@ -2,8 +2,8 @@
 
 > **⚠️ Important**: This is a **codemod tool only**. You do NOT need to import or use any library components. Simply install the package and run the codemod to transform your existing PatternFly components. The library code in this repository is for reference/development purposes only.
 
-**📦 Install from npm**: `npm install -D @kelseamann/semantic-ui-layer`  
-**🔗 Package**: [@kelseamann/semantic-ui-layer on npm](https://www.npmjs.com/package/@kelseamann/semantic-ui-layer)
+**📦 Install from npm**: `npm install -D @patternfly/context-for-ai`  
+**🔗 Package**: [@patternfly/context-for-ai on npm](https://www.npmjs.com/package/@patternfly/context-for-ai)
 
 A codemod tool that automatically adds standardized semantic `data-*` attributes to **all PatternFly components** in your codebase, making them AI-friendly and easier for AI tools to understand.
 
@@ -38,10 +38,10 @@ This tool transforms your existing PatternFly components by adding semantic meta
 Install from npm as a dev dependency (recommended):
 
 ```bash
-npm install -D @kelseamann/semantic-ui-layer
+npm install -D @patternfly/context-for-ai
 ```
 
-**📦 Package**: [@kelseamann/semantic-ui-layer on npm](https://www.npmjs.com/package/@kelseamann/semantic-ui-layer)
+**📦 Package**: [@patternfly/context-for-ai on npm](https://www.npmjs.com/package/@patternfly/context-for-ai)
 
 > **Note**:
 > - Installed as a dev dependency (`-D`) since it's only needed during development
@@ -55,23 +55,21 @@ You have two options:
 
 **Option A: Using npx with jscodeshift (recommended)**
 ```bash
-npx jscodeshift -t node_modules/@kelseamann/semantic-ui-layer/codemod/transform.js --extensions=ts,tsx,js,jsx --parser=tsx src/
+npx jscodeshift -t node_modules/@patternfly/context-for-ai/codemod/transform.js --extensions=ts,tsx,js,jsx --parser=tsx src/
 ```
 
 **Option B: Using the provided script**
 ```bash
-./node_modules/@kelseamann/semantic-ui-layer/codemod/add-semantic-attributes.sh src/
+./node_modules/@patternfly/context-for-ai/codemod/add-semantic-attributes.sh src/
 ```
-
-> **Note**: Option A uses `npx` which automatically downloads and runs jscodeshift without requiring a global install!
 
 ### Setup on a New Computer
 
 If you're setting up the codemod on a new computer:
 
 1. **Install Node.js** (if not already installed)
-2. **Install @kelseamann/semantic-ui-layer** in your project: `npm install -D @kelseamann/semantic-ui-layer`
-3. **Run the codemod** using `npx jscodeshift` (see options above)
+2. **Install @patternfly/context-for-ai** in your project: `npm install -D @patternfly/context-for-ai`
+3. **Run the codemod** using npx (recommended) or the bash script above
 
 The codemod is a standalone tool - you don't need to import or use any library components. It simply transforms your existing PatternFly components by adding semantic attributes.
 
@@ -97,22 +95,23 @@ Into:
   data-role="card"
   data-purpose="clickable"
   data-variant="default"
-  data-context="default"
+  data-context="page"
   data-state="active"
 >
   <CardBody
     data-role="card-body"
     data-purpose="display"
     data-variant="default"
-    data-context="default"
-    data-state="default"
+    data-context="page"
+    data-state="active"
   >
     <Button 
       variant="danger"
       data-role="button"
       data-purpose="action"
       data-variant="danger"
-      data-context="default"
+      data-context="page"
+      data-action-type="destructive"
       data-state="active"
     >
       Cancel
@@ -163,10 +162,10 @@ Every PatternFly component gets the same 7 attributes that appear on rendered DO
 Install the package from npm as a dev dependency:
 
 ```bash
-npm install -D @kelseamann/semantic-ui-layer
+npm install -D @patternfly/context-for-ai
 ```
 
-**📦 Package**: [@kelseamann/semantic-ui-layer on npm](https://www.npmjs.com/package/@kelseamann/semantic-ui-layer)
+**📦 Package**: [@patternfly/context-for-ai on npm](https://www.npmjs.com/package/@patternfly/context-for-ai)
 
 **Note**:
 - This installs the codemod tool as a dev dependency since it's only needed during development
@@ -182,15 +181,15 @@ npm install -D @kelseamann/semantic-ui-layer
 The codemod is distributed as an npm package. To check if you have the latest version:
 
 ```bash
-npm outdated @kelseamann/semantic-ui-layer
+npm outdated @patternfly/context-for-ai
 ```
 
 ### Updating the Codemod
 
 ```bash
-npm update @kelseamann/semantic-ui-layer
-# or for latest version
-npm install -D @kelseamann/semantic-ui-layer@latest
+npm update @patternfly/context-for-ai
+# or
+npm install -D @patternfly/context-for-ai@latest
 ```
 
 ### When to Re-run the Codemod
@@ -225,32 +224,32 @@ Check the commit history or GitHub releases to see what improvements were made i
 ### Transform Entire Directory
 
 ```bash
-npx jscodeshift -t node_modules/@kelseamann/semantic-ui-layer/codemod/transform.js --extensions=ts,tsx,js,jsx --parser=tsx src/
+jscodeshift -t node_modules/@patternfly/context-for-ai/codemod/transform.js --extensions=ts,tsx,js,jsx --parser=tsx src/
 ```
 
 ### Transform Specific File
 
 ```bash
-npx jscodeshift -t node_modules/@kelseamann/semantic-ui-layer/codemod/transform.js src/components/MyComponent.tsx
+jscodeshift -t node_modules/@patternfly/context-for-ai/codemod/transform.js src/components/MyComponent.tsx
 ```
 
 ### Preview Changes (Dry Run)
 
 ```bash
-npx jscodeshift -t node_modules/@kelseamann/semantic-ui-layer/codemod/transform.js --dry src/
+jscodeshift -t node_modules/@patternfly/context-for-ai/codemod/transform.js --dry src/
 ```
 
 ### Using the Bash Script
 
 ```bash
 # Transform all files in src/
-./node_modules/@kelseamann/semantic-ui-layer/codemod/add-semantic-attributes.sh src/
+./node_modules/@patternfly/context-for-ai/codemod/add-semantic-attributes.sh src/
 
 # Transform a specific file
-./node_modules/@kelseamann/semantic-ui-layer/codemod/add-semantic-attributes.sh src/components/MyComponent.tsx
+./node_modules/@patternfly/context-for-ai/codemod/add-semantic-attributes.sh src/components/MyComponent.tsx
 
 # Transform current directory
-./node_modules/semantic-ui-layer/codemod/add-semantic-attributes.sh
+./node_modules/@patternfly/context-for-ai/codemod/add-semantic-attributes.sh
 ```
 
 ## Supported PatternFly Packages
@@ -587,8 +586,8 @@ If you're using this package, you should only use the codemod tool - ignore any 
 
 ```bash
 # Clone the repository
-git clone https://github.com/kelseamann/semantic-UI.git
-cd semantic-ui-layer
+git clone https://github.com/patternfly/context-for-ai.git
+cd context-for-ai
 
 # Install dependencies
 npm install

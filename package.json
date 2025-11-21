@@ -1,6 +1,6 @@
 {
-  "name": "@kelseamann/semantic-ui-layer",
-  "version": "1.1.0",
+  "name": "@patternfly/context-for-ai",
+  "version": "1.0.0",
   "description": "Codemod tool that automatically adds semantic data-* attributes to all PatternFly components in your codebase, making them AI-friendly. No library imports needed - just run the codemod.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -68,15 +68,21 @@
     "jscodeshift": "^17.3.0",
     "rollup": "^3.0.0",
     "rollup-plugin-dts": "^5.0.0",
+    "semantic-release": "^23.0.0",
+    "@semantic-release/commit-analyzer": "^11.0.0",
+    "@semantic-release/release-notes-generator": "^12.0.0",
+    "@semantic-release/npm": "^11.0.0",
+    "@semantic-release/git": "^10.0.0",
+    "@semantic-release/github": "^9.0.0",
     "ts-jest": "^29.4.5",
     "typescript": "^5.0.0"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yourusername/semantic-ui-layer.git"
+    "url": "git+https://github.com/patternfly/context-for-ai.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/semantic-ui-layer/issues"
+    "url": "https://github.com/patternfly/context-for-ai/issues"
   },
-  "homepage": "https://github.com/yourusername/semantic-ui-layer#readme"
+  "homepage": "https://github.com/patternfly/context-for-ai#readme"
 }
