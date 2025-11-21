@@ -55,7 +55,7 @@ You have two options:
 
 **Option A: Using npx with jscodeshift (recommended)**
 ```bash
-npx jscodeshift -t node_modules/@kelseamann/semantic-ui-layer/codemod/transform.js --extensions=ts,tsx,js,jsx --parser=tsx src/
+npx jscodeshift -t node_modules/@patternfly/context-for-ai/codemod/transform.js --extensions=ts,tsx,js,jsx --parser=tsx src/
 ```
 
 **Option B: Using the provided script**
@@ -63,19 +63,13 @@ npx jscodeshift -t node_modules/@kelseamann/semantic-ui-layer/codemod/transform.
 ./node_modules/@patternfly/context-for-ai/codemod/add-semantic-attributes.sh src/
 ```
 
-**Option B: Using jscodeshift directly**
-```bash
-jscodeshift -t node_modules/@patternfly/context-for-ai/codemod/transform.js --extensions=ts,tsx,js,jsx --parser=tsx src/
-```
-
 ### Setup on a New Computer
 
 If you're setting up the codemod on a new computer:
 
 1. **Install Node.js** (if not already installed)
-2. **Install jscodeshift globally**: `npm install -g jscodeshift`
-3. **Install @patternfly/context-for-ai** in your project: `npm install @patternfly/context-for-ai`
-4. **Run the codemod** using one of the methods above
+2. **Install @patternfly/context-for-ai** in your project: `npm install -D @patternfly/context-for-ai`
+3. **Run the codemod** using npx (recommended) or the bash script above
 
 The codemod is a standalone tool - you don't need to import or use any library components. It simply transforms your existing PatternFly components by adding semantic attributes.
 
@@ -101,22 +95,23 @@ Into:
   data-role="card"
   data-purpose="clickable"
   data-variant="default"
-  data-context="default"
+  data-context="page"
   data-state="active"
 >
   <CardBody
     data-role="card-body"
     data-purpose="display"
     data-variant="default"
-    data-context="default"
-    data-state="default"
+    data-context="page"
+    data-state="active"
   >
     <Button 
       variant="danger"
       data-role="button"
       data-purpose="action"
       data-variant="danger"
-      data-context="default"
+      data-context="page"
+      data-action-type="destructive"
       data-state="active"
     >
       Cancel
